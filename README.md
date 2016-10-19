@@ -1,0 +1,2 @@
+# wap
+mobile resource
