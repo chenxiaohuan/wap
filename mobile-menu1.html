@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>适合移动端使用的漂亮的导航栏</title>
+    <meta name="keywords" content="导航栏,移动端，手机版，响应式">
+    <meta name="description" content="这是一款适合移动端使用的漂亮的响应式导航栏，兼容性：IE10+,以及主流的现代浏览器。">
+    <link rel="stylesheet" href="menu1.css">
+</head>
+<body>
+<div id="menu" class="hide">
+    <ul id="nav">
+        <li class="navitem">
+            <div id="closeMenu" class="float-right btn hide">
+                <div class="lcbody">
+                    <div class="lcitem top">
+                        <div class="rect top"></div>
+                    </div>
+                    <div class="lcitem bottom">
+                        <div class="rect bottom"></div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="navitem active">
+            <a class="transform" href="javascript:;">
+                <span class="circle transform"></span>首页
+            </a>
+        </li>
+        <li class="navitem">
+            <a class="transform" href="javascript:;">
+                <span class="circle transform"></span>产品
+            </a>
+        </li>
+        <li class="navitem">
+            <a class="transform" href="javascript:;">
+                <span class="circle transform"></span>案例
+            </a>
+        </li>
+        <li class="navitem">
+            <a href="javascript:;" class="hassub">
+                <span class="circle transform"></span>关于
+                <span class="more">
+                        <span class="h"></span>
+                        <span class="h v transform"></span>
+                    </span>
+            </a>
+            <ul class="subnav transform">
+                <li>
+                    <a href="javascript:;">
+                        文化
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        团队
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        介绍
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="navitem">
+            <a class="transform" href="javascript:;">
+                <span class="circle transform"></span>联系
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+
+<div id="sitewapper">
+    <div id="sitecontent" class="transform">
+        <div id="header">
+            <div id="openMenu" class="float-left btn">
+                <div class="lcbody">
+                    <div class="lcitem top">
+                        <div class="rect top"></div>
+                    </div>
+                    <div class="lcitem bottom">
+                        <div class="rect bottom"></div>
+                    </div>
+                </div>
+            </div>
+            <a id="logo" href="javascript:;">
+                <img src="http://assets.gold.xitu.io/images/logo-header.svg"/>
+            </a>
+        </div>
+
+        <div id="bgmask" class="iPage hide"></div>
+    </div>
+</div>
+
+<script src='https://g.alicdn.com/sj/lib/zepto/zepto.min.js'></script>
+<script>
+    $(function(){
+        $('#openMenu').click(function(){
+            $('body').addClass('open');
+            $('#menu').removeClass('hide');
+            $('#bgmask').removeClass('hide');
+        });
+
+        $('#closeMenu').click(function(){
+            $('body').removeClass('open');
+            $('#menu').addClass('hide');
+            $('#bgmask').addClass('hide');
+            console.log(1);
+        });
+
+        $('#bgmask').click(function(){
+            $('body').removeClass('open');
+            $('#menu').addClass('hide');
+            $('#bgmask').addClass('hide');
+            console.log(1);
+        });
+
+        var $toggleBtn = $('.navitem>.hassub');
+
+        $toggleBtn.on('click',(function() {
+            var $this = $(this),
+                    $parentItem = $this.parent(),
+                    $subItem = $this.next(),
+                    isActive = $parentItem.hasClass('active');
+
+            if(isActive){
+                $subItem.css('height','0px');
+                $parentItem.removeClass('active');
+            }else{
+                $parentItem.addClass('active');
+                $subItem.css('height','150px');
+            }
+        }));
+
+    });
+</script>
+</body>
+</html>
